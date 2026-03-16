@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "title": "The World at War — March 2026",
+    "compiled": "2026-03-17",
+    "sources": [
+      "Council on Foreign Relations Preventive Priorities Survey 2026",
+      "Center for Strategic and International Studies (CSIS), January 2026",
+      "Russia Matters / Institute for the Study of War (ISW)",
+      "Al Jazeera, February 2026",
+      "ICRC Humanitarian Outlook 2026",
+      "Britannica 2026 Iran War coverage",
+      "ACLED armed conflict data"
+    ]
+  },
+  "headline_stats": [
+    { "value": "~130", "label": "Active armed conflicts worldwide" },
+    { "value": "2M+",  "label": "Ukraine war casualties (est.)" },
+    { "value": "20%",  "label": "Ukrainian territory under Russian control" },
+    { "value": "2,000+", "label": "Killed in 2026 Iran conflict" }
+  ],
+  "conflicts": [
+    { "name": "Russia – Ukraine",    "region": "Eastern Europe",  "tier": 1, "intensity": 100, "status": "Year 4 — Attrition",   "since": 2022 },
+    { "name": "Israel – Gaza",       "region": "Middle East",     "tier": 1, "intensity": 97,  "status": "Active combat",          "since": 2023 },
+    { "name": "US / Israel – Iran",  "region": "Middle East",     "tier": 1, "intensity": 94,  "status": "Erupted Feb. 2026",      "since": 2026 },
+    { "name": "North Korea tensions","region": "East Asia",       "tier": 1, "intensity": 80,  "status": "Escalatory risk",        "since": 2023 },
+    { "name": "Sudan civil war",     "region": "Africa",          "tier": 2, "intensity": 75,  "status": "Ongoing since 2023",     "since": 2023 },
+    { "name": "West Bank",           "region": "Middle East",     "tier": 2, "intensity": 68,  "status": "Active raids",           "since": 2023 },
+    { "name": "Myanmar",             "region": "SE Asia",         "tier": 2, "intensity": 58,  "status": "Civil war ongoing",      "since": 2021 },
+    { "name": "DRC / Sahel",         "region": "Africa",          "tier": 3, "intensity": 45,  "status": "Fragmented groups",      "since": 2012 }
+  ],
+  "global_trend": {
+    "years":  [2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2026],
+    "counts": [52,  55,  59,  65,  72,  79,  84,  88,  93,  96,  102, 108, 118, 124, 130, 130]
+  },
+  "ukraine_casualties": {
+    "labels": ["Russia", "Ukraine"],
+    "killed":  [400000, 100000],
+    "wounded": [800000, 450000]
+  },
+  "equipment_losses": {
+    "categories": ["Tanks & vehicles", "Aircraft", "Naval vessels"],
+    "russia":  [13855, 339, 29],
+    "ukraine": [5571,  194, 42]
+  },
+  "territory_monthly": {
+    "months": ["Jan 25","Feb 25","Mar 25","Apr 25","May 25","Jun 25","Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26","Mar 26*"],
+    "gains":  [180, 190, 171, 130, 160, 155, 145, 190, 210, 180, 200, 74, 106, 50, -57]
+  },
+  "iran_casualties": {
+    "labels": ["Killed in Iran", "Killed in Lebanon", "Killed in Israel", "Displaced (×1000s)"],
+    "values": [1700, 200, 100, 300],
+    "colors": ["#c0392b", "#b5680a", "#3b6fbf", "#5a7a3a"]
+  },
+  "cumulative_territory": {
+    "labels": ["Feb 22","Jun 22","Oct 22","Feb 23","Jun 23","Oct 23","Feb 24","Jun 24","Oct 24","Feb 25","Jun 25","Oct 25","Dec 25","Mar 26"],
+    "values": [3000,18000,22000,24000,24500,25200,25800,26800,27600,28400,29000,29100,29100,29183]
+  }
+}

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The World at War — March 2026</title>
+<meta name="description" content="Nine major armed conflicts rage simultaneously. A planet in crisis — mapped, measured, and analysed.">
+<meta property="og:title" content="The World at War — March 2026">
+<meta property="og:description" content="Nine major armed conflicts rage simultaneously. A planet in crisis — mapped, measured, and analysed.">
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-bar"></div>
+    <span>Loading report…</span>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-pub">Global Affairs Review</div>
+  <div class="masthead-title">THE DISPATCH</div>
+  <div class="masthead-date">March 17, 2026 · Special Report</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker" data-animate="fade-up">Special Report · Global Conflict</div>
+    <h1 class="hero-headline" data-animate="fade-up" data-delay="150">The World<br><em>at War</em></h1>
+    <div class="hero-rule" data-animate="fade-up" data-delay="280"></div>
+    <p class="hero-sub" data-animate="fade-up" data-delay="380">Nine major armed conflicts rage simultaneously. A planet in crisis — mapped, measured, and analysed.</p>
+    <div class="hero-scroll" data-animate="fade-up" data-delay="500">
+      <span>Scroll to explore</span>
+      <div class="hero-scroll-arrow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT STRIP -->
+<div class="stat-strip" id="stat-strip">
+  <!-- Populated by JS from data/conflicts.json -->
+</div>
+
+<!-- NAV -->
+<nav class="section-nav" id="section-nav">
+  <ul>
+    <li><a href="#overview" class="nav-link active">Overview</a></li>
+    <li><a href="#ukraine"  class="nav-link">Ukraine</a></li>
+    <li><a href="#iran"     class="nav-link">Iran</a></li>
+    <li><a href="#africa"   class="nav-link">Africa</a></li>
+    <li><a href="#analysis" class="nav-link">Analysis</a></li>
+  </ul>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="page">
+
+  <!-- ── SECTION 1: OVERVIEW ── -->
+  <section id="overview" data-section>
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <div class="section-rule"></div>
+      <span class="section-tag">Overview</span>
+    </div>
+
+    <h2 class="article-title" data-animate="fade-up">A generation that has known nothing but war</h2>
+    <p class="article-dek" data-animate="fade-up">Approximately 130 armed conflicts are active as of March 2026 — more than double the number recorded fifteen years ago. Six of the most dangerous involve the Middle East.</p>
+    <div class="article-byline">Analysis Desk · March 2026</div>
+
+    <p class="body dropcap">The world has entered a new era of persistent, overlapping warfare. Unlike the Cold War's proxy conflicts or the post-9/11 decade of counterinsurgency, today's wars are simultaneously interstate, intrastate, and increasingly interlinked — feeding each other's supply chains of weapons, soldiers, and ideology.</p>
+    <p class="body">The Council on Foreign Relations' 2026 Preventive Priorities Survey places <strong>six Middle Eastern conflicts</strong> in its Tier I and Tier II categories. Beyond the Middle East, a frozen-then-unfrozen war in Eastern Europe grinds on, a civil war in Sudan displaces millions unseen by the world's cameras, and a military junta in Myanmar continues to bomb its own civilians.</p>
+
+    <!-- INTERACTIVE CONFLICT TABLE -->
+    <div class="chart-block" data-animate="fade-up">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Active major conflicts — prioritised by global risk</div>
+          <div class="chart-sub">CFR Preventive Priorities Survey 2026 · Click a row to explore</div>
+        </div>
+        <div class="filter-group" id="conflict-filters">
+          <button class="filter-btn active" data-tier="all">All</button>
+          <button class="filter-btn" data-tier="1">Tier I</button>
+          <button class="filter-btn" data-tier="2">Tier II</button>
+          <button class="filter-btn" data-tier="3">Tier III</button>
+        </div>
+      </div>
+      <div class="conflict-grid" id="conflict-table">
+        <div class="conflict-row header">
+          <div class="conflict-col-head sortable" data-sort="name">Conflict <span class="sort-icon">↕</span></div>
+          <div class="conflict-col-head">Intensity</div>
+          <div class="conflict-col-head sortable" data-sort="status">Status <span class="sort-icon">↕</span></div>
+          <div class="conflict-col-head sortable" data-sort="tier">Risk tier <span class="sort-icon">↕</span></div>
+        </div>
+        <div id="conflict-rows"><!-- populated by JS --></div>
+      </div>
+      <div class="chart-source">Source: CFR Preventive Priorities Survey 2026 · ICRC Humanitarian Outlook 2026</div>
+    </div>
+
+    <!-- GLOBAL TREND CHART -->
+    <div class="chart-block" data-animate="fade-up">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Global armed conflicts — long-run count</div>
+          <div class="chart-sub">Hover for detail · Drag to zoom</div>
+        </div>
+        <div class="toggle-group">
+          <button class="toggle-btn active" data-chart="trend" data-view="line">Line</button>
+          <button class="toggle-btn" data-chart="trend" data-view="bar">Bar</button>
+        </div>
+      </div>
+      <div class="chart-canvas-wrap" style="height:220px;"><canvas id="trendChart"></canvas></div>
+      <div class="chart-source">Source: ACLED · ICRC Humanitarian Outlook 2026</div>
+    </div>
+  </section>
+
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- ── SECTION 2: UKRAINE ── -->
+  <section id="ukraine" data-section>
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <div class="section-rule"></div>
+      <span class="section-tag">Ukraine</span>
+    </div>
+
+    <h2 class="article-title italic" data-animate="fade-up">Russia's grinding war — an extraordinary price for minimal gains</h2>
+    <p class="article-dek">After four years and over 1.2 million Russian casualties, the front line has barely moved. But the human cost to both nations is without modern precedent.</p>
+    <div class="article-byline">Analysis Desk · Sources: CSIS, Russia Matters / ISW, Al Jazeera</div>
+
+    <p class="body dropcap">On February 24, 2026, Russia's full-scale invasion of Ukraine entered its fourth year. The Center for Strategic and International Studies estimates <strong>1.2 million Russian military casualties</strong> — killed, wounded, and missing — by December 2025. Ukraine suffered between 500,000 and 600,000. Together, the war has consumed roughly <strong>two million soldiers</strong>.</p>
+
+    <div class="pull-quote" data-animate="fade-up">
+      <p>"No major power has suffered anywhere near these numbers of casualties or fatalities in any war since World War II."</p>
+      <cite>— Center for Strategic and International Studies (CSIS), January 2026</cite>
+    </div>
+
+    <!-- CASUALTIES — STACKED/SPLIT TOGGLE -->
+    <div class="two-col">
+      <div class="chart-block" data-animate="fade-up">
+        <div class="chart-header">
+          <div>
+            <div class="chart-title">Military casualties by side</div>
+            <div class="chart-sub">Killed vs wounded breakdown</div>
+          </div>
+          <div class="toggle-group">
+            <button class="toggle-btn active" data-chart="cas" data-view="grouped">Split</button>
+            <button class="toggle-btn" data-chart="cas" data-view="stacked">Stacked</button>
+          </div>
+        </div>
+        <div class="legend">
+          <div class="legend-item"><div class="legend-swatch" style="background:#c0392b;"></div>Russia</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#3b6fbf;"></div>Ukraine</div>
+        </div>
+        <div class="chart-canvas-wrap" style="height:200px;"><canvas id="casChart"></canvas></div>
+        <div class="chart-source">CSIS Jan. 2026 · Al Jazeera Feb. 2026</div>
+      </div>
+
+      <div class="chart-block" data-animate="fade-up">
+        <div class="chart-header">
+          <div>
+            <div class="chart-title">Equipment losses</div>
+            <div class="chart-sub">Tanks, aircraft & naval vessels</div>
+          </div>
+          <div class="toggle-group">
+            <button class="toggle-btn active" data-chart="eq" data-view="grouped">Grouped</button>
+            <button class="toggle-btn" data-chart="eq" data-view="ratio">Ratio</button>
+          </div>
+        </div>
+        <div class="legend">
+          <div class="legend-item"><div class="legend-swatch" style="background:#c0392b;"></div>Russia</div>
+          <div class="legend-item"><div class="legend-swatch" style="background:#3b6fbf;"></div>Ukraine</div>
+        </div>
+        <div class="chart-canvas-wrap" style="height:200px;"><canvas id="eqChart"></canvas></div>
+        <div class="chart-source">Russia Matters / ISW, Feb. 2026</div>
+      </div>
+    </div>
+
+    <p class="body">Despite this, Russia's territorial gains have been <strong>glacially slow</strong>. In early March 2026, ISW data showed Russian forces had actually <strong>lost 57 square miles</strong> of Ukrainian territory in the preceding four-week period.</p>
+
+    <!-- TERRITORY CHART WITH RANGE SELECTOR -->
+    <div class="chart-block" data-animate="fade-up">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Russian territorial gains/losses — sq miles per month</div>
+          <div class="chart-sub">Red = gains · Blue = losses · Hover for detail</div>
+        </div>
+        <div class="range-group" id="terrRange">
+          <button class="range-btn active" data-range="all">All</button>
+          <button class="range-btn" data-range="2025">2025</button>
+          <button class="range-btn" data-range="2026">2026</button>
+        </div>
+      </div>
+      <div class="chart-canvas-wrap" style="height:220px;"><canvas id="terrChart"></canvas></div>
+      <div class="chart-source">Source: Russia Matters analysis of ISW data, March 2026</div>
+    </div>
+
+    <!-- FACT BOX -->
+    <div class="fact-box" data-animate="fade-up">
+      <div class="fact-box-head">Ukraine — key facts as of March 2026</div>
+      <ul>
+        <li><span>→</span>Russia controls ~20% of Ukraine (inc. Crimea) — the size of Pennsylvania</li>
+        <li><span>→</span>Every power plant in Ukraine has been damaged by Russian strikes</li>
+        <li><span>→</span>Ukraine's energy system can meet only 60% of national demand</li>
+        <li><span>→</span>Over 90,000 Ukrainians are listed as missing, 90% believed to be soldiers</li>
+        <li><span>→</span>Russia is losing ~40,000 soldiers per month and struggling to recruit</li>
+      </ul>
+    </div>
+
+    <!-- CUMULATIVE TERRITORY -->
+    <div class="chart-block" data-animate="fade-up">
+      <div class="chart-title">Cumulative Russian territorial control since Feb. 2022</div>
+      <div class="chart-sub">Total sq miles held (incl. Crimea baseline) · Hover for values</div>
+      <div class="chart-canvas-wrap" style="height:210px;"><canvas id="cumulChart"></canvas></div>
+      <div class="chart-source">Source: Russia Matters / ISW, March 2026</div>
+    </div>
+  </section>
+
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- ── SECTION 3: IRAN ── -->
+  <section id="iran" data-section>
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <div class="section-rule"></div>
+      <span class="section-tag">The 2026 Iran War</span>
+    </div>
+
+    <h2 class="article-title" data-animate="fade-up">The night the Middle East changed — 900 strikes in 12 hours</h2>
+    <p class="article-dek">On February 28, 2026, U.S. and Israeli forces launched the largest joint military operation in decades. The supreme leader of Iran was killed in the opening hours.</p>
+    <div class="article-byline">Analysis Desk · Sources: Britannica, CSIS, Al Jazeera</div>
+
+    <p class="body dropcap">On the night of February 28, 2026, nearly 900 airstrikes hit Iranian targets in 12 hours — missiles, air defences, military infrastructure, and leadership bunkers. Supreme Leader Ali Khamenei was killed within hours. The shock reverberated across financial markets, shipping lanes, and every capital in the world.</p>
+
+    <div class="two-col">
+      <div class="chart-block" data-animate="fade-up">
+        <div class="chart-header">
+          <div>
+            <div class="chart-title">Casualties by location</div>
+            <div class="chart-sub">Feb. 28 – Mar. 17, 2026 · Click to highlight</div>
+          </div>
+          <div class="toggle-group">
+            <button class="toggle-btn active" data-chart="iran" data-view="doughnut">Donut</button>
+            <button class="toggle-btn" data-chart="iran" data-view="bar">Bar</button>
+          </div>
+        </div>
+        <div class="chart-canvas-wrap" style="height:220px;"><canvas id="iranChart"></canvas></div>
+        <div class="chart-source">Source: CSIS · Britannica · Al Jazeera</div>
+      </div>
+
+      <div class="sidebar-box" data-animate="fade-up">
+        <div class="sidebar-box-title">Timeline — Feb. 28, 2026</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-time">Feb. 28 — Night</div>
+              <p>~900 US & Israeli strikes in 12 hours targeting Iranian nuclear sites, air defence, and leadership bunkers.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-time">Feb. 28 — Hours later</div>
+              <p>Supreme Leader Khamenei killed. Dozens of senior officials dead. Iranian air defence crippled.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <div class="tl-time">March 1–7</div>
+              <p>Drones strike Dubai International Airport. Strait of Hormuz diverted. Oil prices surge. 2,000+ casualties confirmed.</p>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot tl-dot--last"></div>
+            <div class="tl-content">
+              <div class="tl-time">March 2026 — Ongoing</div>
+              <p>Revolutionary Guard in disarray. Regional stability deeply uncertain. Diplomatic crisis escalating.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- ── SECTION 4: AFRICA ── -->
+  <section id="africa" data-section>
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <div class="section-rule"></div>
+      <span class="section-tag">Sudan & Africa</span>
+    </div>
+
+    <h2 class="article-title" data-animate="fade-up">The war the world forgot</h2>
+    <p class="article-dek">Sudan's civil war — the world's fastest-growing humanitarian crisis — receives a fraction of the media coverage of conflicts with fewer casualties.</p>
+    <div class="article-byline">Analysis Desk · Sources: CFR 2026 Survey, ICRC</div>
+
+    <p class="body dropcap">The CFR's 2026 survey rated Sudan's war as the single <strong>most likely conflict to escalate</strong> of all scenarios examined. Since April 2023, the Sudanese army has battled the Rapid Support Forces. Millions have been displaced; famine stalks entire regions. Yet it commands less than a fraction of the headlines devoted to Gaza or Ukraine.</p>
+    <p class="body">Across the African continent, the Sahel region has become the new epicentre of jihadist insurgency, with Mali, Burkina Faso, Niger, and Chad all experiencing sustained violence. The ICRC's 2026 humanitarian outlook describes Africa as facing a "compounding crisis" of conflict, climate, and food insecurity.</p>
+  </section>
+
+  <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+  <!-- ── SECTION 5: ANALYSIS ── -->
+  <section id="analysis" data-section>
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <div class="section-rule"></div>
+      <span class="section-tag">Analysis</span>
+    </div>
+
+    <h2 class="article-title" data-animate="fade-up">Why is the world so much more violent?</h2>
+    <p class="article-dek">A weakening of global institutions, the proliferation of cheap weapons, and the fragmentation of international order have created conditions where wars are easier to start and harder to end.</p>
+    <div class="article-byline">Analysis Desk</div>
+
+    <p class="body dropcap">Several structural forces are converging. First, the post-Cold War "liberal peace" — the period of declining interstate conflict from 1990 to roughly 2010 — appears to have ended. Great powers are once again willing to use military force to revise borders.</p>
+    <p class="body">Second, cheap technology has democratised lethal force. The use of commercial drones in Ukraine, Gaza, and Sudan has transformed battlefields. AI-enabled targeting, autonomous weapons, and cyber operations now run alongside kinetic conflict.</p>
+    <p class="body">Third, the institutions designed to manage these tensions — the UN Security Council, formal alliance structures — are under profound strain. Russia's veto paralyses the Security Council on Ukraine. The US has grown less predictable. China remains ambiguous on nearly every conflict.</p>
+
+    <div class="pull-quote" data-animate="fade-up">
+      <p>"Front lines today stretch across physical and digital worlds. The use of drones, AI, and cyber operations is accelerating — too often with devastating effects on civilians."</p>
+      <cite>— ICRC Humanitarian Outlook 2026</cite>
+    </div>
+
+    <p class="body">The result is a world where wars last longer, involve more actors, and produce more displacement. Over 20 of today's conflicts have lasted more than two decades. There are now entire generations who have never known peace.</p>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">THE DISPATCH</div>
+    <p><strong>Sources & methodology</strong> — Council on Foreign Relations Preventive Priorities Survey 2026 · CSIS January 2026 · Russia Matters / ISW · Al Jazeera Feb. 2026 · OHCHR Ukraine civilian casualties · ICRC Humanitarian Outlook 2026 · Britannica 2026 Iran War · ACLED armed conflict data.</p>
+    <p>All casualty figures are estimates; methodology varies by source. Territorial control data based on ISW daily map assessments. Report compiled March 17, 2026.</p>
+    <div class="footer-links">
+      <a href="https://github.com" target="_blank">GitHub</a>
+      <span>·</span>
+      <a href="data/conflicts.json" target="_blank">Raw data (JSON)</a>
+    </div>
+  </div>
+</footer>
+
+<!-- TOOLTIP -->
+<div id="tooltip" class="tooltip" role="tooltip" aria-hidden="true"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="static/js/main.js"></script>
+</body>
+</html>
